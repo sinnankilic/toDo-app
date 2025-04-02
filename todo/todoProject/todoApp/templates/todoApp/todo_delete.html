@@ -1,0 +1,11 @@
+
+{% extends "todoApp/layout.html" %}
+{% block content %}
+
+      <form method="POST" action="{% url 'view_delete' todo.id %}">
+            {% csrf_token %}
+            <p>"{{ todo.title }}" görevini silmek istediğinizden emin misiniz?</p>
+            <button type="submit" class="btn btn-danger">Sil</button>
+        </form>
+ 
+{% endblock %}

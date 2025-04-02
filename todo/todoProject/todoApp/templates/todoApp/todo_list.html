@@ -1,0 +1,52 @@
+{% extends "todoApp/layout.html" %}
+
+{% block title %}To-Do List{% endblock title %}
+
+{% block content %}
+
+<style>
+    .table th,
+    .table td {
+        max-width: 200px;  
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    
+</style>
+
+
+
+<div class="table-responsive container bg-white "style="margin-top: 70px;border-radius:15px" >
+    <h1 class="text-center " >Tasks</h1> 
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Details</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+        {% for todo in todos %}
+        <tr>
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.details }}</td>
+            <td>{{ todo.importance }}</td>
+            <td>
+                <form action="{% url 'view_delete' todo.id %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+
+{% extends "todoApp/layout.html" %}
+{% block content %}
+
+
+
+<div class="container bg-white " style="margin-top:100px;border-radius:15px">
+
+            
+            <h1 class="text-center"style="margin-top:60px" >  
+                  Welcome to the Task List Web Page</h1>
+                  
+
+                    <div class="container mt-5 text-center">
+                        <h3 class="text-center">Task List</h3>
+                        <div class="d-flex justify-content-center align-items-center gap-3">
+                            
+                           
+
+                            <a class="btn btn-success" href="{% url "todo_add" %}">add Task</a>
+                            <a class="btn btn-primary" href="{% url "todo_list" %}">Show List</a>
+                            
+                        <ul id="taskList" class="list-group mt-3"></ul>
+                    </div>
+
+                    <br>
+                    
+      
+     
+</div>
+
+
+{% endblock content %}
